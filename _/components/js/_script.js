@@ -1,77 +1,77 @@
-/*var app = angular.module('app', []);
+var close_form = $('.close-form'), sb = $('.form-search'), sbe = $('.search-expanded'), listings = $('.listings'), ctBtn = $('.btn-ct');
 
-function Ctrl($scope) {
-    
-}*/
-
-var close_form = $('.close-form');
-var sb = $('.form-search');
-var sbe = $('.search-expanded');
-var listings = $('.listings');
-
-init();
-
-function init() {
-
+function Main() {
 	sb.slideDown('slow');
-
-	bindUIActions();
-
 }
 
-function bindUIActions() {
+var app = angular.module('app', [])
+.controller('appController', ['$scope', '$http', function appController($scope, $http) {
 
-	$('button.more').on("click", function() {
+	$http.get('_/json/data.json').success(function(data){
 
-		listings.css('margin-left', '350px');
+		$scope.suburbs = data.suburbs;
+		$scope.prices = data.prices;
+		$scope.types = data.types;
+		$scope.bathrooms = data.bathrooms;
+		$scope.spaces = data.spaces;
+		$scope.categories = data.categories;
+		$scope.sortBy = data.sortBy;
+		$scope.additional = data.additional;
 
-		//PURE CSS
-		/*sbe.css({
-			'opacity': 1,
-			'display': 'block'
+		$http.get('_/json/listings.json').success(function(data1) {
+
+			$scope.listings = data1.listings;
+
 		});
 
-		sbe.addClass('animated bounceInUp');*/
+	});
 
-		//TWEEN
+	$scope.data = {
+
+    	suburb: null,
+    	minPrice: null,
+    	maxPrice: null,
+    	minRooms: null,
+    	maxRooms: null
+    	
+   	};
+
+   	$scope.moreClick = function() {
+
+   		listings.css('margin-left', '350px');
 		sbe.css('display', 'block');
 		TweenMax.from(sbe, 1, {y: 50, ease:Bounce.easeOut});
-
 		sb.slideUp('slow');
 
-	});
+   	}
 
-	$('button.more-trigger').on("click", function(e) {
+   	$scope.moreTrigger = function() {
 
-		sbe.css('display', 'block');
+   		sbe.css('display', 'block');
 		TweenMax.from(sbe, 1, {y: 50, ease:Bounce.easeOut});
 
-	});
+   	}
 
-	close_form.on("click", function(e){
-
-		e.preventDefault();
-		e.stopPropagation();
+   	$scope.closeForm = function() {
 
 		sbe.hide();
 		sb.slideDown('slow');
 		listings.css('margin-left', '0');
 
-	});
+   	}
 
-	$('.btn-ct').on("click", function(e) {
+}]).directive('toggleClass', function() {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+    		element.bind('click', function() {
 
-		e.preventDefault();
-		e.stopPropagation();
+    			ctBtn.each(function() {
+					ctBtn.removeClass("selected");
+				});
 
-		$('.btn-ct').each(function() {
-
-			$(this).removeClass("selected");
-
-		});
-
-		$(this).addClass("selected");
-
-	});
-
-}
+                element.toggleClass(attrs.toggleClass);
+            });
+        }
+    };
+});

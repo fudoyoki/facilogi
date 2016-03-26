@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,13 +18,17 @@
     <![endif]-->
 
   </head>
-  <body>
+  <body ng-controller="appController" onload="Main();">
 
   <div class="main-table">
 
   <div class="main-row">
 
   <div class="main-cell">
+
+    <header>
+        facilogi
+    </header>
 
     <div class="form-search clearfix">
 
@@ -38,31 +42,12 @@
 
               <div class="select-holder">
 
-                <select name="suburbs[]" class="suburbs" placeholder="Select a suburb">
-                  <option value="Bardon">Bardon</option>
-                  <option value="Brisbane City">Brisbane City</option>
-                  <option value="Broadbeach Waters">Broadbeach Waters</option>
-                  <option value="Brookfield">Brookfield</option>
-                  <option value="Burleigh Heads">Burleigh Heads</option>
-                  <option value="Cranbourne East">Cranbourne East</option>
-                  <option value="Doncaster East">Doncaster East</option>
-                  <option value="Hamilton">Hamilton</option>
-                  <option value="Highland Park">Highland Park</option>
-                  <option value="Indooroopilly">Indooroopilly</option>
-                  <option value="Isle Of Capri">Isle Of Capri</option>
-                  <option value="Kenmore">Kenmore</option>
-                  <option value="Mermaid Beach">Mermaid Beach</option>
-                  <option value="New Farm">New Farm</option>
-                  <option value="Newstead">Newstead</option>
-                  <option value="Paddington">Paddington</option>
-                  <option value="Point Arkwright">Point Arkwright</option>
-                  <option value="South Yarra">South Yarra</option>
-                  <option value="Springvale">Springvale</option>
-                  <option value="Stafford">Stafford</option>
-                  <option value="Sunshine">Sunshine</option>
-                  <option value="Teneriffe">Teneriffe</option>
-                  <option value="Upper Mount Gravatt">Upper Mount Gravatt</option>
-                </select><!-- suburbs -->
+              <select name="suburbs[]" class="suburbs" ng-model="data.suburb">
+
+                <option value="" disabled selected>Select a suburb</option>
+                <option ng-repeat="item in suburbs" value="{{item}}">{{item}}</option>
+
+              </select>
 
               </div><!-- select-holder -->
 
@@ -74,76 +59,16 @@
 
               <section class="double-select">
 
-                <select name="min-price" id="min-price">
-                  <option value="" disabled selected>$min</option>
-                  <option value="0">$0</option>
-                  <option value="50">$50k</option>
-                  <option value="100">$100k</option>
-                  <option value="150">$150k</option>
-                  <option value="200">$200k</option>
-                  <option value="250">$250</option>
-                  <option value="300">$300</option>
-                  <option value="350">$350</option>
-                  <option value="400">$400</option>
-                  <option value="450">$450</option>
-                  <option value="500">$500</option>
-                  <option value="550">$550</option>
-                  <option value="600">$600</option>
-                  <option value="650">$650</option>
-                  <option value="700">$700</option>
-                  <option value="750">$750</option>
-                  <option value="800">$800</option>
-                  <option value="850">$850</option>
-                  <option value="900">$900</option>
-                  <option value="950">$950</option>
-                  <option value="1">$1m</option>
-                  <option value="1.25">$1.25m</option>
-                  <option value="1.5">$1.5m</option>
-                  <option value="1.75">$1.75m</option>
-                  <option value="2">$2m</option>
-                  <option value="2.5">$2.5m</option>
-                  <option value="3">$3m</option>
-                  <option value="4">$4m</option>
-                  <option value="5">$5m</option>
-                  <option value="5+">$5m+</option>
-
+                <select name="min-price" id="min-price" ng-model="data.minPrice">
+                  <option value="" disabled selected>$ min</option>
+                  <option ng-repeat="item in prices" value="{{item.value}}">{{item.name}}</option>
                 </select><!-- min -->
 
                 <span class="divider">/</span>
 
-                <select name="max-price" id="max-price">
-                <option value="" disabled selected>$max</option>
-                  <option value="0">$0</option>
-                  <option value="50">$50k</option>
-                  <option value="100">$100k</option>
-                  <option value="150">$150k</option>
-                  <option value="200">$200k</option>
-                  <option value="250">$250</option>
-                  <option value="300">$300</option>
-                  <option value="350">$350</option>
-                  <option value="400">$400</option>
-                  <option value="450">$450</option>
-                  <option value="500">$500</option>
-                  <option value="550">$550</option>
-                  <option value="600">$600</option>
-                  <option value="650">$650</option>
-                  <option value="700">$700</option>
-                  <option value="750">$750</option>
-                  <option value="800">$800</option>
-                  <option value="850">$850</option>
-                  <option value="900">$900</option>
-                  <option value="950">$950</option>
-                  <option value="1">$1m</option>
-                  <option value="1.25">$1.25m</option>
-                  <option value="1.5">$1.5m</option>
-                  <option value="1.75">$1.75m</option>
-                  <option value="2">$2m</option>
-                  <option value="2.5">$2.5m</option>
-                  <option value="3">$3m</option>
-                  <option value="4">$4m</option>
-                  <option value="5">$5m</option>
-                  <option value="5+">$5m+</option>
-
+                <select name="max-price" id="max-price" ng-model="data.maxPrice">
+                  <option value="" disabled selected>$ max</option>
+                  <option ng-repeat="item in prices" value="{{item.value}}">{{item.name}}</option>
                 </select><!-- max -->
 
               </section><!-- double-select -->
@@ -156,9 +81,9 @@
 
               <section class="double-select ds-txt">
 
-                <input type="text" placeholder="Min" id="min-bed"/>
+                <input type="text" placeholder="Min" id="min-bed" ng-model="data.minRooms"/>
                 <span class="divider">/</span>
-                <input type="text" placeholder="Max" id="max-bed"/>
+                <input type="text" placeholder="Max" id="max-bed" ng-model="data.maxRooms"/>
 
               </section><!-- double-select -->
 
@@ -166,7 +91,7 @@
 
             <div class="btn-group" role="group" aria-label="...">
 
-              <button type="button" class="btn btn-default more">More Options</button>
+              <button type="button" class="btn btn-default more" ng-click="moreClick()">More Options</button>
               <button type="button" class="btn btn-default search">Search</button>
 
             </div><!-- btn-group -->
@@ -179,7 +104,7 @@
 
     <div class="listings-filter">
 
-      <button class="btn hidden-lg more-trigger hidden-md pull-left">Filter</button>
+      <button class="btn hidden-lg more-trigger hidden-md pull-left" ng-click="moreTrigger()">Filter</button>
 
       <span class="search-type hidden-sm hidden-xs">For sale</span>
 
@@ -212,11 +137,11 @@
               <section class="expanded-header">
 
                 <div class="btn-group change-type" role="group" aria-label="...">
-                  <button type="button" class="btn btn-default btn-ct selected">Buy</button>
-                  <button type="button" class="btn btn-default btn-ct">Rent</button>
+                  <button type="button" class="btn btn-default btn-ct selected" toggle-class="selected">Buy</button>
+                  <button type="button" class="btn btn-default btn-ct" toggle-class="selected">Rent</button>
                 </div>
 
-                <button class="close-form glyphicon glyphicon-remove"></button>
+                <button class="close-form glyphicon glyphicon-remove" ng-click="closeForm()"></button>
 
               </section><!-- expanded-header -->
 
@@ -228,31 +153,12 @@
 
                 <div class="select-holder">
 
-                  <select name="suburbs[]" class="suburbs" placeholder="Select a suburb">
-                    <option value="Bardon">Bardon</option>
-                    <option value="Brisbane City">Brisbane City</option>
-                    <option value="Broadbeach Waters">Broadbeach Waters</option>
-                    <option value="Brookfield">Brookfield</option>
-                    <option value="Burleigh Heads">Burleigh Heads</option>
-                    <option value="Cranbourne East">Cranbourne East</option>
-                    <option value="Doncaster East">Doncaster East</option>
-                    <option value="Hamilton">Hamilton</option>
-                    <option value="Highland Park">Highland Park</option>
-                    <option value="Indooroopilly">Indooroopilly</option>
-                    <option value="Isle Of Capri">Isle Of Capri</option>
-                    <option value="Kenmore">Kenmore</option>
-                    <option value="Mermaid Beach">Mermaid Beach</option>
-                    <option value="New Farm">New Farm</option>
-                    <option value="Newstead">Newstead</option>
-                    <option value="Paddington">Paddington</option>
-                    <option value="Point Arkwright">Point Arkwright</option>
-                    <option value="South Yarra">South Yarra</option>
-                    <option value="Springvale">Springvale</option>
-                    <option value="Stafford">Stafford</option>
-                    <option value="Sunshine">Sunshine</option>
-                    <option value="Teneriffe">Teneriffe</option>
-                    <option value="Upper Mount Gravatt">Upper Mount Gravatt</option>
-                  </select><!-- suburbs -->
+                  <select name="suburbs[]" class="suburbs" ng-model="data.suburb">
+
+                    <option value="" disabled selected>Select a suburb</option>
+                    <option ng-repeat="item in suburbs" value="{{item}}">{{item}}</option>
+
+                  </select>
 
                 </div><!-- search-holder -->
 
@@ -264,83 +170,21 @@
 
                 <section class="double-select">
 
-                  <select name="min-price" id="min-price">
-                    <option value="" disabled selected>$min</option>
-                    <option value="0">$0</option>
-                    <option value="50">$50k</option>
-                    <option value="100">$100k</option>
-                    <option value="150">$150k</option>
-                    <option value="200">$200k</option>
-                    <option value="250">$250</option>
-                    <option value="300">$300</option>
-                    <option value="350">$350</option>
-                    <option value="400">$400</option>
-                    <option value="450">$450</option>
-                    <option value="500">$500</option>
-                    <option value="550">$550</option>
-                    <option value="600">$600</option>
-                    <option value="650">$650</option>
-                    <option value="700">$700</option>
-                    <option value="750">$750</option>
-                    <option value="800">$800</option>
-                    <option value="850">$850</option>
-                    <option value="900">$900</option>
-                    <option value="950">$950</option>
-                    <option value="1">$1m</option>
-                    <option value="1.25">$1.25m</option>
-                    <option value="1.5">$1.5m</option>
-                    <option value="1.75">$1.75m</option>
-                    <option value="2">$2m</option>
-                    <option value="2.5">$2.5m</option>
-                    <option value="3">$3m</option>
-                    <option value="4">$4m</option>
-                    <option value="5">$5m</option>
-                    <option value="5+">$5m+</option>
-
+                  <select name="min-price" id="min-price" ng-model="data.minPrice">
+                    <option value="" disabled selected>$ min</option>
+                    <option ng-repeat="item in prices" value="{{item.value}}">{{item.name}}</option>
                   </select><!-- min -->
 
                   <span class="divider">/</span>
 
-                  <select name="max-price" id="max-price">
-
-                    <option value="" disabled selected>$max</option>
-                    <option value="0">$0</option>
-                    <option value="50">$50k</option>
-                    <option value="100">$100k</option>
-                    <option value="150">$150k</option>
-                    <option value="200">$200k</option>
-                    <option value="250">$250</option>
-                    <option value="300">$300</option>
-                    <option value="350">$350</option>
-                    <option value="400">$400</option>
-                    <option value="450">$450</option>
-                    <option value="500">$500</option>
-                    <option value="550">$550</option>
-                    <option value="600">$600</option>
-                    <option value="650">$650</option>
-                    <option value="700">$700</option>
-                    <option value="750">$750</option>
-                    <option value="800">$800</option>
-                    <option value="850">$850</option>
-                    <option value="900">$900</option>
-                    <option value="950">$950</option>
-                    <option value="1">$1m</option>
-                    <option value="1.25">$1.25m</option>
-                    <option value="1.5">$1.5m</option>
-                    <option value="1.75">$1.75m</option>
-                    <option value="2">$2m</option>
-                    <option value="2.5">$2.5m</option>
-                    <option value="3">$3m</option>
-                    <option value="4">$4m</option>
-                    <option value="5">$5m</option>
-                    <option value="5+">$5m+</option>
-
+                  <select name="max-price" id="max-price" ng-model="data.maxPrice">
+                    <option value="" disabled selected>$ max</option>
+                    <option ng-repeat="item in prices" value="{{item.value}}">{{item.name}}</option>
                   </select><!-- max -->
 
                 </section><!-- double-select -->
 
               </div><!-- search-form-group -->
-
 
               <div class="search-form-group">
 
@@ -348,14 +192,13 @@
 
                 <section class="double-select ds-txt">
 
-                  <input type="text" placeholder="Min" id="min-bed"/>
+                  <input type="text" placeholder="Min" id="min-bed" ng-model="data.minRooms"/>
                   <span class="divider">/</span>
-                  <input type="text" placeholder="Max" id="max-bed"/>
+                  <input type="text" placeholder="Max" id="max-bed" ng-model="data.maxRooms"/>
 
                 </section><!-- double-select -->
 
               </div><!-- search-form-group -->
-
 
               <div class="search-form-group">
 
@@ -366,12 +209,9 @@
                   <div class="select-holder">
 
                     <select name="bathrooms" id="bathrooms">
-                      <option value="0">Any</option>
-                      <option value="1" selected>1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
+
+                      <option ng-repeat="item in bathrooms" value="{{item}}">{{item}}</option>
+
                     </select>
 
                   </div>
@@ -385,12 +225,9 @@
                   <div class="select-holder">
 
                     <select name="spaces" id="spaces">
-                      <option value="0" selected>Any</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
+
+                      <option ng-repeat="item in spaces" value="{{item}}">{{item}}</option>
+
                     </select>
 
                   </div>
@@ -399,7 +236,6 @@
 
               </div><!-- search-form-group -->
 
-
               <div class="search-form-group">
 
                 <div class="search-label">type</div>
@@ -407,19 +243,14 @@
                   <div class="select-holder">
 
                     <select name="type" id="type" class="sel-pad">
-                      <option value="any" selected>Any</option>
-                      <option value="residential">Residential</option>
-                      <option value="rural">Rural</option>
-                      <option value="land">Land</option>
-                      <option value="commercial">Commercial</option>
-                      <option value="business">Business</option>
-                      <option value="holiday">Holiday</option>
+
+                      <option ng-repeat="item in types" value="{{item.value}}">{{item.name}}</option>
+
                     </select>
                     
                   </div>
 
               </div><!-- search-form-group -->
-
 
               <div class="search-form-group">
 
@@ -437,15 +268,9 @@
                   <div class="select-holder">
 
                     <select name="category" id="category">
-                      <option value="any" selected>Any</option>
-                      <option value="semi-rural">AcreageSemi-rural</option>
-                      <option value="apartment">Apartment</option>
-                      <option value="flat">Flat</option>
-                      <option value="townhouse">Townhouse</option>
-                      <option value="house">House</option>
-                      <option value="hotel-leisure">Hotel/Leisure</option>
-                      <option value="offices">Offices</option>
-                      <option value="unit">Unit</option>
+
+                      <option ng-repeat="item in categories" value="{{item.value}}">{{item.name}}</option>
+
                     </select>
 
                   </div>
@@ -479,18 +304,14 @@
                 <div class="select-holder">
 
                     <select name="sort-by" id="sort-by" class="sel-pad">
-                      <option value="newest" selected>Date Listed (Newest First)</option>
-                      <option value="oldest">Date Listed (Oldest First)</option>
-                      <option value="low-high">Price Low-High</option>
-                      <option value="high-low">Price High-Low</option>
-                      <option value="bathrooms">Bathrooms</option>
-                      <option value="garages">Garages</option>
+
+                      <option ng-repeat="item in sortBy" value="{{item.value}}">{{item.name}}</option>
+
                     </select>
 
                 </div><!-- select-holder -->
 
               </div><!-- search-form-group -->
-
 
               <div class="search-form-group">
 
@@ -499,14 +320,14 @@
                 <div class="select-holder">
 
                     <select name="additional" id="additional" class="sel-pad">
-                      <option value="available" selected>Available</option>
-                      <option value="sold">Sold/Leased</option>
+
+                      <option ng-repeat="item in additional" value="{{item.value}}">{{item.name}}</option>
+                      
                     </select>
 
                 </div><!-- select-holder -->
 
               </div><!-- search-form-group -->
-
 
               <!-- END FORM ELEMENTS -->
 
@@ -526,18 +347,8 @@
         </div><!-- search-expanded -->
 
         <div class="listings">
-          
-          <div class="listing-card"></div>
-          <div class="listing-card"></div>
-          <div class="listing-card"></div>
-          <div class="listing-card"></div>
-          <div class="listing-card"></div>
-          <div class="listing-card"></div>
-          <div class="listing-card"></div>
-          <div class="listing-card"></div>
-          <div class="listing-card"></div>
-          <div class="listing-card"></div>
-          <div class="listing-card"></div>
+
+          <div class="listing-card" ng-repeat="item in listings"></div>
 
         </div><!-- listings -->
 

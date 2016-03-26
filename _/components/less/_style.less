@@ -25,9 +25,17 @@ body {
 }
 
 header {
+  color: #fff;
   background-color: #eda238;
+  font-size: 20px;
   height: 60px;
+  line-height: 60px;
+  padding: 0 25px;
   width: 100%;
+
+  position: relative;
+  z-index: 6;
+  box-shadow: 2px 2px 3px rgba(0,0,0,.2);
 }
 
 .main-table {
@@ -62,6 +70,12 @@ GENERAL
 
 *******************************/
 
+button.btn.btn-default.btn-ct.selected:hover,
+button.btn.btn-default.btn-ct.selected:active,
+button.btn.btn-default.btn-ct.selected:focus {
+  outline: 0;
+}
+
 .btn-group button {
   color: #9f9f9f;
   background-color: #fff;
@@ -93,7 +107,7 @@ input[type="checkbox"] {
   margin-right: 5px;
 }
 
-select, input[type="text"] {
+select, input[type="text"], input[type="number"] {
 
   height: 31px;
   line-height: 31px;
@@ -154,6 +168,7 @@ section.double-select:hover {
 }
 
 button.btn.btn-default.btn-ct.selected {
+  outline: 0;
   background-color: @yellow;
   color: #fff;
 }
@@ -177,6 +192,10 @@ FORM SEARCH
 
     margin: 5px 10px 10px;
     line-height: 40px;
+
+    select {
+      color: #999;
+    }
 
     #groupe-bedrooms {
 
@@ -269,8 +288,8 @@ FORM SEARCH EXPANDED
   position: absolute;
   width: 350px;
   background-color: #fff;
-  height: -webkit-calc(~"100%" - ~"50px");
-  height: calc(~"100%" - ~"50px");
+  height: -webkit-calc(~"100%" - ~"105px");//50
+  height: calc(~"100%" - ~"105px");//50
 
   z-index: 3;
   box-shadow: 2px 2px 3px rgba(0,0,0,.2);
@@ -279,6 +298,10 @@ FORM SEARCH EXPANDED
 
     height: 100%;
     overflow-y: auto;
+
+    select {
+      color: #999;
+    }
 
     .scroll-area {
       padding: 20px 13px 80px 13px;

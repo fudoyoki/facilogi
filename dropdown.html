@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>facilogi</title>
+
+    <link href="_/css/bootstrap.css" rel="stylesheet">
+    <link href="_/css/style.css" rel="stylesheet">
+
+	<style>
+
+		ul.dropdown-menu {
+			display: none;
+			max-height: 210px;
+			overflow-y: auto;
+			overflow-x: hidden;
+			min-width: 76px;
+		}
+
+		ul.dropdown-menu li {
+			text-align: left;
+			padding-left: 5px;
+			height: 30px;
+			line-height: 30px;
+			color: #000;
+			background-color: #fff;
+		}
+
+		ul.dropdown-menu li:hover {
+			cursor: pointer;
+			color: #fff;
+			background-color: #eda238;
+		}
+
+		.btn-info {
+			position: relative;
+		    min-width: 120px;
+		    border: none!important;
+		    color: #999 !important;
+		    text-align: left;
+		}
+
+		.btn-info.focus, .btn-info:focus,
+		.btn-info.hover, .btn-info:hover,
+		.btn-info.active, .btn-info:active,
+		.btn-info:active:focus {
+		    color: #999 !important;
+		    background-color: #fff;
+		    border: none!important;
+		    outline: 0!important;
+		}
+
+		.btn-info span.caret {
+			top: 14px;
+			position: absolute;
+		    right: 10px;
+		}
+
+		.btn-group-holder {
+		    height: 37px;
+		    display: inline-block;
+		    min-width: 120px;
+		    line-height: 31px;
+		    border-radius: 2px;
+		    box-sizing: border-box;
+		}
+
+	</style>
+
+</head>
+
+<body>
+
+	<div class="btn-group-holder">
+
+		<div class="btn-group">
+
+		  	<button class="btn button-label btn-info">$ Min<span class="caret"></span></button>
+
+		  	<ul class="dropdown-menu">
+
+		  		<li><div>$0</div></li>
+		  		<li><div>$50k</div></li>
+		  		<li><div>$100k</div></li>
+		  		<li><div>$150k</div></li>
+		  		<li><div>$200k</div></li>
+		  		<li><div>$250k</div></li>
+		  		<li><div>$300k</div></li>
+
+		    </ul>
+		
+		</div>
+
+	</div>
+
+	<script src="_/js/bootstrap.js"></script>
+    <script src="_/js/script.js"></script>
+
+    <script>
+
+    	$('.dropdown-menu').css('width', $('.btn-info').css('width'));
+
+		$('.btn-info').on("click", function(e){
+
+			e.preventDefault();
+			e.stopPropagation();
+
+			$('ul.dropdown-menu').toggle();
+
+		});
+
+		$('.dropdown-menu li').on("click", function(e) {
+
+			e.preventDefault();
+			e.stopPropagation();
+
+			$('ul.dropdown-menu').toggle();
+
+			$('.btn-info').html($(this).text() + '<span class="caret"></span>');
+
+		});
+
+	</script>
+
+</body>
+</html>

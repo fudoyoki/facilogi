@@ -1,0 +1,294 @@
+{
+
+	"suburbs": [
+
+		"Bardon",
+		"Brisbane City",
+		"Broadbeach Waters",
+		"Brookfield",
+		"Burleigh Heads",
+		"Cranbourne East",
+		"Doncaster East",
+		"Hamilton",
+		"Highland Park",
+		"Indooroopilly",
+		"Isle Of Capri",
+		"Kenmore",
+		"Mermaid Beach",
+		"New Farm",
+		"Newstead",
+		"Paddington",
+		"Point Arkwright",
+		"South Yarra",
+		"Springvale",
+		"Stafford",
+		"Sunshine",
+		"Teneriffe",
+		"Upper Mount Gravatt"
+
+	],
+
+	"prices": [
+
+		{
+			"name": "$0",
+			"value": "0"
+		},
+		{
+			"name": "$50k",
+			"value": "50"
+		},
+		{
+			"name": "$100k",
+			"value": "100"
+		},
+		{
+			"name": "$150k",
+			"value": "150"
+		},
+		{
+			"name": "$200k",
+			"value": "200"
+		},
+		{
+			"name": "$250k",
+			"value": "250"
+		},
+		{
+			"name": "$300k",
+			"value": "300"
+		},
+		{
+			"name": "$350k",
+			"value": "350"
+		},
+		{
+			"name": "$400k",
+			"value": "400"
+		},
+		{
+			"name": "$450k",
+			"value": "450"
+		},
+		{
+			"name": "$500k",
+			"value": "500"
+		},
+		{
+			"name": "$550k",
+			"value": "550"
+		},
+		{
+			"name": "$600k",
+			"value": "600"
+		},
+		{
+			"name": "$650k",
+			"value": "650"
+		},
+		{
+			"name": "$700k",
+			"value": "700"
+		},
+		{
+			"name": "$750k",
+			"value": "750"
+		},
+		{
+			"name": "$800k",
+			"value": "800"
+		},
+		{
+			"name": "$850k",
+			"value": "850"
+		},
+		{
+			"name": "$900k",
+			"value": "900"
+		},
+		{
+			"name": "$950k",
+			"value": "950"
+		},
+		{
+			"name": "$1m",
+			"value": "1"
+		},
+		{
+			"name": "$1.25m",
+			"value": "1.25"
+		},
+		{
+			"name": "$1.5m",
+			"value": "1.5"
+		},
+		{
+			"name": "$1.75m",
+			"value": "1.75"
+		},
+		{
+			"name": "$2m",
+			"value": "2"
+		},
+		{
+			"name": "$2.5m",
+			"value": "2.5"
+		},
+		{
+			"name": "$3m",
+			"value": "3"
+		},
+		{
+			"name": "$4m",
+			"value": "4"
+		},
+		{
+			"name": "$5m",
+			"value": "5"
+		},
+		{
+			"name": "$5m+",
+			"value": "5+"
+		}
+
+	],
+
+	"bathrooms": [
+
+		"Any",
+		"1",
+		"2",
+		"3",
+		"4",
+		"5"
+
+	],
+
+	"spaces": [
+
+		"Any",
+		"1",
+		"2",
+		"3",
+		"4",
+		"5"
+
+	],
+
+	"types": [
+
+		{
+			"name": "any",
+			"value": "Any"
+		},
+		{
+			"name": "residential",
+			"value": "Residential"
+		},
+		{
+			"name": "rural",
+			"value": "Rural"
+		},
+		{
+			"name": "land",
+			"value": "Land"
+		},
+		{
+			"name": "commercial",
+			"value": "Commercial"
+		},
+		{
+			"name": "business",
+			"value": "Business"
+		},
+		{
+			"name": "holiday",
+			"value": "Holiday"
+		}
+
+	],
+
+	"categories": [
+
+		{
+			"name": "Any",
+			"value": "any"
+		},
+		{
+			"name": "AcreageSemi-rural",
+			"value": "semi-rural"
+		},
+		{
+			"name": "Apartment",
+			"value": "apartment"
+		},
+		{
+			"name": "Flat",
+			"value": "flat"
+		},
+		{
+			"name": "Townhouse",
+			"value": "townhouse"
+		},
+		{
+			"name": "House",
+			"value": "house"
+		},
+		{
+			"name": "Hotel/Leisure",
+			"value": "hotel-leisure"
+		},
+		{
+			"name": "Offices",
+			"value": "offices"
+		},
+		{
+			"name": "Unit",
+			"value": "unit"
+		}
+
+	],
+
+	"sortBy": [
+
+		{
+			"name": "Date Listed (Newest First)",
+			"value": "newest"
+		},
+		{
+			"name": "Date Listed (Oldest First)",
+			"value": "oldest"
+		},
+		{
+			"name": "Price Low-High",
+			"value": "low-high"
+		},
+		{
+			"name": "Price High-Low",
+			"value": "high-low"
+		},
+		{
+			"name": "Bathrooms",
+			"value": "bathrooms"
+		},
+		{
+			"name": "Garages",
+			"value": "garages"
+		}
+
+	],
+
+	"additional": [
+
+		{
+			"name": "Available",
+			"value": "available"
+		},
+		{
+			"name": "Sold/Leased",
+			"value": "sold"
+		}
+
+	]
+
+}
