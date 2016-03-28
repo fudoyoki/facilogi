@@ -14,3 +14,5 @@
 //@codekit-prepend "TweenMax.js"
 //@codekit-prepend "EasePack.js"
 //@codekit-prepend "angular.js"
+//@codekit-prepend "chosen.js"
+//@codekit-prepend "custom-dropdown.js"

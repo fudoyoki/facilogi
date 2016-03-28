@@ -178,32 +178,32 @@
 	"types": [
 
 		{
-			"name": "any",
-			"value": "Any"
+			"name": "Any",
+			"value": "any"
 		},
 		{
-			"name": "residential",
-			"value": "Residential"
+			"name": "Residential",
+			"value": "residential"
 		},
 		{
-			"name": "rural",
-			"value": "Rural"
+			"name": "Rural",
+			"value": "rural"
 		},
 		{
-			"name": "land",
-			"value": "Land"
+			"name": "Land",
+			"value": "land"
 		},
 		{
-			"name": "commercial",
-			"value": "Commercial"
+			"name": "Commercial",
+			"value": "commercial"
 		},
 		{
-			"name": "business",
-			"value": "Business"
+			"name": "Business",
+			"value": "business"
 		},
 		{
-			"name": "holiday",
-			"value": "Holiday"
+			"name": "Holiday",
+			"value": "holiday"
 		}
 
 	],

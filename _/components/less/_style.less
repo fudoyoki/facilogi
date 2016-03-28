@@ -70,32 +70,27 @@ GENERAL
 
 *******************************/
 
-button.btn.btn-default.btn-ct.selected:hover,
-button.btn.btn-default.btn-ct.selected:active,
-button.btn.btn-default.btn-ct.selected:focus {
-  outline: 0;
-}
-
-.btn-group button {
+button {
   color: #9f9f9f;
   background-color: #fff;
   border: 1px solid #e5e5e5;
 }
 
-.btn-group button:focus {
+button:focus {
   border: 1px solid #e5e5e5;
 }
 
-button:focus, select:focus,
-button:active, input:focus {
-  outline: 0;
+button:focus, button:hover, button:active,
+select:focus, select:hover, select:active,
+input:focus, input:hover, input:active {
+  outline: 0!important;
   border: none;
   outline-offset: 0;
 }
 
 .search-label {
   font-size: 14px;
-  line-height: 25px;
+  line-height: 17px;
   font-weight: 700;
 }
 
@@ -125,7 +120,7 @@ select, input[type="text"], input[type="number"] {
 }
 
 .select-holder {
-  height: 35px;
+  min-height: 35px;
   line-height: 31px;
   border: 2px solid transparent;
   border-radius: 2px;
@@ -167,15 +162,64 @@ section.double-select:hover {
   border: 2px solid #bbb;
 }
 
-button.btn.btn-default.btn-ct.selected {
-  outline: 0;
+button.btn.btn-default.btn-ct.selected,
+button.btn.btn-default.btn-ct-top.selected {
+  border: 1px solid transparent;
   background-color: @yellow;
   color: #fff;
+}
+
+button.btn.btn-default.btn-ct:hover,
+button.btn.btn-default.btn-ct-top:hover {
+  border: 1px solid #ccc;
 }
 
 select.suburbs {
   width: 100%;
   padding: 0 10px;
+}
+
+/******************************
+
+CHOSEN OVERRIDES
+
+*******************************/
+
+.chosen-container-active .chosen-choices {
+  border: none!important;
+  box-shadow: none !important;
+}
+
+.chosen-container-multi .chosen-drop .result-selected {
+  display: none!important;
+}
+
+.chosen-container .chosen-results li.highlighted {
+    background-color: @yellow!important;
+    background-image: none!important;
+    color: #fff!important;
+
+    -webkit-transition-duration: 0.2s!important;
+    transition-duration: 0.2s!important;
+}
+
+.chosen-container-multi .chosen-choices li.search-choice {
+  margin: 5px 5px 3px 0!important;
+  background: #f2f2f2!important;
+  color: #090909!important;
+  border: 1px solid #bbb!important;
+  border-radius: 3px!important;
+  padding:3px 18px 3px 5px!important;
+}
+
+.chosen-container-multi .chosen-choices {
+  min-height: 33px!important;
+  background-image: none!important;
+  border: none!important;
+}
+
+.chosen-container .chosen-results li {
+   line-height: 20px!important;
 }
 
 /******************************
@@ -190,7 +234,7 @@ FORM SEARCH
 
   form#search {
 
-    margin: 5px 10px 10px;
+    margin: 10px 10px 10px;
     line-height: 40px;
 
     select {
@@ -225,20 +269,26 @@ FORM SEARCH
     }
 
     select.suburbs {
-      width: 270px;
+      min-width: 270px;
+      max-width: 500px;
+      min-height: 33px;
+    }
+
+    .chosen-container.chosen-container-multi {
+      width: 100%!important;
+      min-width: 270px!important;
+      max-width: 500px!important;
+      min-height: 33px!important;
     }
 
     #groupe-suburbs, #groupe-price, #groupe-bedrooms {
       display: inline-block;
+      margin-right: 10px;
+    }
+
+    .change-type {
+      margin-top: 21px;
       margin-right: 15px;
-    }
-
-    #groupe-bedrooms {
-
-    }
-
-    .btn-group {
-      display: inline-block;
     }
 
     button.more {
@@ -314,6 +364,13 @@ FORM SEARCH EXPANDED
         bottom: 8px;
         width: auto;
         color: #999;
+    }
+
+    .chosen-container.chosen-container-multi {
+      width: auto!important;
+      min-width: 270px!important;
+      max-width: 500px!important;
+      min-height: 33px!important;
     }
 
     section.expanded-header {
@@ -552,19 +609,34 @@ LISTINGS
 *******************************/
 
 .listings {
-  height: 96vh;//temp
+  height: 96vh;
   overflow-y: auto;
   padding: 0 13px 25px 12px;
   background-color: @bg-grey;
 }
 
 .listing-card {
+  width: 100%;
   height: 300px;
+  margin: 0 0 25px;
   background-color: #000;
   float: left;
-  width: -webkit-calc(~"33.333333333%" - ~"25px");
-  width: calc(~"33.333333333%" - ~"25px");
-  margin: 25px 12px 0 13px;
+}
+
+@media screen and (min-width: 690px) {
+  .listing-card {
+    width: -webkit-calc(~"50%" - ~"25px");
+    width: calc(~"50%" - ~"25px");
+    margin: 25px 12px 0px 13px;
+  }
+}
+
+@media screen and (min-width: 1035px) {
+  .listing-card {
+    width: -webkit-calc(~"33.333333333%" - ~"25px");
+    width: calc(~"33.333333333%" - ~"25px");
+    margin: 25px 12px 0 13px;
+  }
 }
 
 /******************************
@@ -685,6 +757,105 @@ MEDIA QUERIES
 
   }
 
+}
+
+/******************************
+
+CUSTOM DROP DOWN
+
+*******************************/
+
+ul.dropdown-menu {
+  display: none;
+  max-height: 210px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-width: 76px;
+}
+
+ul.dropdown-menu li {
+  text-align: left;
+  padding-left: 5px;
+  height: 30px;
+  line-height: 30px;
+  color: #000;
+  background-color: #fff;
+}
+
+ul.dropdown-menu li:hover {
+  cursor: pointer;
+  color: #fff;
+  background-color: @yellow;
+  -webkit-transition-duration: 0.2s; /* Safari */
+  transition-duration: 0.2s;
+}
+
+.btn-info {
+  padding: 5px 12px!important;
+  position: relative;
+  background-color: #fff;
+  min-width: 100px;
+  border: none!important;
+  color: #999 !important;
+  text-align: left;
+}
+
+.btn-info.focus, .btn-info:focus,
+.btn-info.hover, .btn-info:hover,
+.btn-info.active, .btn-info:active,
+.btn-info:active:focus {
+    color: #999 !important;
+    background-color: #fff;
+    border: none!important;
+    outline: 0!important;
+}
+
+.btn-info span.caret {
+  top: 14px;
+  position: absolute;
+  right: 10px;
+}
+
+.btn-group-holder {
+    float: left;
+    display: inline-block;
+    min-width: 100px;
+    line-height: 31px;
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+
+.btn-group-holder.f-none {
+  float: none!important;
+}
+
+.btn-group-holder.f-right {
+  float: right!important;
+}
+
+.btn-group-holder.group-sml {
+
+  button {
+    width: 138px;
+  }
+
+  ul.dropdown-menu {
+    max-height: 150px;
+    width: 138px!important;
+  }
+  
+}
+
+.btn-group-holder.group-lg {
+
+  button {
+    width: 305px;
+  }
+
+  ul.dropdown-menu {
+    width: 305px!important;
+  }
+  
 }
 
 /******************************
