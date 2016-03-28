@@ -1,4 +1,4 @@
-var close_form = $('.close-form'), sb = $('.form-search'), sbe = $('.search-expanded'), listings = $('.listings'), ctBtn = $('.btn-ct');
+var base_url = window.location.href.replace(/([a-zA-Z-_]*).html(\/[0-9a-zA-Z-_/]*)?/i, ''), close_form = $('.close-form'), sb = $('.form-search'), sbe = $('.search-expanded'), listings = $('.listings'), ctBtn = $('.btn-ct');
 
 function Main() {
 	sb.slideDown('slow');
@@ -7,7 +7,7 @@ function Main() {
 var app = angular.module('app', [])
 .controller('appController', ['$scope', '$http', function appController($scope, $http) {
 
-	$http.get('_/json/data.json').success(function(data){
+	$http.get(base_url + '_/json/data.json').success(function(data){
 
 		$scope.suburbs = data.suburbs;
 		$scope.prices = data.prices;
@@ -18,7 +18,7 @@ var app = angular.module('app', [])
 		$scope.sortBy = data.sortBy;
 		$scope.additional = data.additional;
 
-		$http.get('_/json/listings.json').success(function(data1) {
+		$http.get(base_url + '_/json/listings.json').success(function(data1) {
 
 			$scope.listings = data1.listings;
 
