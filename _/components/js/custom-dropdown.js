@@ -1,9 +1,7 @@
 var CustomDropDown = {
 
 	init:function($element, $btn) {
-
 		this.bindUIActions($element, $btn);
-		
 	},
 
 	bindUIActions:function($element, $btn) {

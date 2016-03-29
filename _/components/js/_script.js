@@ -2,7 +2,7 @@ var base_url = window.location.href.replace(/([a-zA-Z-_]*).html(\/[0-9a-zA-Z-_/]
 
 function Main() {
 
-	setTimeout(bindUIActions, 0);
+	setTimeout(bindUIActions, 100);
 	sb.slideDown('slow');
 
 }
